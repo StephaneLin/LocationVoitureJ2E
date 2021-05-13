@@ -1,0 +1,163 @@
+/** HEADER **/
+nav {
+    font-family: "Helvetica", sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    background-color: white;
+}
+
+header a {
+    color: #47ba01;
+    margin: 1em;
+    padding: 1em;
+    text-decoration: none;
+    transition: background-color 1s, color 1s;
+}
+
+header a:hover {
+    color: #47ba01;
+    background-color: #eeeeee;
+    transition: background-color 1s, color 1s;
+}
+
+header div {
+    display: none;
+}
+
+/** FOOTER **/
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    padding: 0.4rem;
+}
+
+@media (max-width: 420px) {
+    footer {
+        font-size: 10%;
+    }
+
+}
+
+/** MAIN **/
+
+body {
+    font-family: "Helvetica", sans-serif;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    background-image: url(../images/fond.jpg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a.article {
+    display: block;
+    text-decoration: none;
+    width: 13rem;
+    margin: 15% 3%;
+    border-radius: 2rem;
+    color: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    transition: box-shadow 1s;
+}
+
+a.article:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 1.5);
+    transition: box-shadow 1s;
+}
+
+a.article p, a.article h2 {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+a.article img {
+    width: 100%;
+    height: 50%;
+    border-radius: 0 0 2rem 2rem;
+    object-fit: cover;
+}
+
+a.article div {
+    width: 100%;
+    height: 50%;
+}
+
+/** TABLE **/
+
+table#table_available_cars, table#table_available_users, table#table_parkings {
+    background-color: white;
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+table#table_available_cars tbody tr:nth-child(odd), table#table_available_users tbody tr:nth-child(odd), table#table_parkings tbody tr:nth-child(odd) {
+    background-color: #cfcfcf;
+    color: #000000;
+}
+
+table#table_available_cars tbody tr:nth-child(even), table#table_available_users tbody tr:nth-child(even), table#table_parkings tbody tr:nth-child(even) {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+
+tbody td {
+    text-align: center;
+}
+
+table#table_available_cars th, table#table_available_cars td, table#table_available_users th, table#table_available_users td, table#table_parkings th, table#table_parkings td {
+    padding: 20px;
+}
+
+table#table_available_cars th, table#table_available_users th, table#table_parkings th {
+    text-transform: uppercase;
+}
+
+form#search-form {
+    display: flex;
+    justify-content: center;
+}
+
+input#search-input {
+    width: 25%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1em;
+}
+
+#crud {
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.link button {
+    width: 20em;
+    height: 4em;
+}

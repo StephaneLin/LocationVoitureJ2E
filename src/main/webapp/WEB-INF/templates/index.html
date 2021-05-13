@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Index</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('index')}"></nav>
+</header>
+
+<main>
+    <a class="article" href="booking_base" id="car_booking">
+        <div>
+            <h2>RESERVER UNE VOITURE</h2>
+            <p>
+                Cliquez ici pour faire une reservation de voiture!
+            </p>
+        </div>
+    </a>
+
+    <a class="article" href="connected/staff/cars_info" id="cars_info" th:if="${!#bools.isFalse(userRole)}">
+        <div th:if="${userRole} >= 3">
+            <h2>CONSULTER LES VOITURES</h2>
+            <p>
+                Cliquez ici pour accéder à l'état des voitures
+            </p>
+        </div>
+    </a>
+
+    <a class="article" href="connected/staff/manager/users_info" id="users_info" th:if="${!#bools.isFalse(userRole)}">
+        <div th:if="${userRole} >= 3">
+            <h2>CONSULTER LES UTILISATEURS</h2>
+            <p>
+                Cliquez ici pour accéder à la liste des usagers
+            </p>
+        </div>
+    </a>
+
+    <a class="article" href="connected/staff/manager/crud_tool" id="crud" th:if="${!#bools.isFalse(userRole)}">
+        <div th:if="${userRole} == 4">
+            <h2>CONSULTER LE CRUD</h2>
+            <p>
+                Cliquez ici pour accéder à la recherche globale
+            </p>
+        </div>
+    </a>
+</main>
+<footer th:replace="~{fragments::footer('index')}"></footer>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation d'un véhicule</title>
+    <link href="../../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('booking')}"></nav>
+</header>
+<main>
+    <a>
+        <div>
+            La photo
+        </div>
+        <div>
+            <h2>
+                VOTRE VOITURE
+            </h2>
+            <p>
+                <tr>
+                    <td th:text="${car.brand}">Marque</td>
+                    <td th:text="${car.modele}">Modele</td>
+                    <td th:text="${car.carYear}">Annee</td>
+                    <td th:text="${car.mileage}">Kilometrage</td>
+                    <td th:text="${car.price}">Prix</td>
+                </tr>
+            </p>
+        </div>
+        <div>
+            <h2>
+                CONDITIONS DE RESERVATION
+            </h2>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages,
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                Ipsum.
+            </p>
+            <p>Réservation du ... au ...</p>
+        </div>
+    </a>
+    <a>
+        <h2>
+            CHOIX DU MODE DE PAIEMENT
+        </h2>
+        <div>
+            <h1>
+                EN LIGNE
+            </h1>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages,
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                Ipsum.
+            </p>
+            <form method="post">
+                <input name="carId" th:value="${car.id}" type="hidden">
+                <button type="submit">Réserver</button>
+            </form>
+        </div>
+        <div>
+            <h1>
+                SUR PLACE
+            </h1>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                containing Lorem Ipsum passages,
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                Ipsum.
+            </p>
+            <form method="post">
+                <input name="carId" th:value="${car.id}" type="hidden">
+                <button type="submit">Réserver</button>
+            </form>
+        </div>
+    </a>
+</main>
+</body>
+</html>

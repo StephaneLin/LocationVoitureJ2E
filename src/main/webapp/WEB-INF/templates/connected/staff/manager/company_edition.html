@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mise à jour d'une entreprise</title>
+    <link href="../../../css/formstyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('company_edition')}"></nav>
+</header>
+<main id="meca">
+    <section>
+        <h1>Mettre une entreprise à jour</h1>
+        <form method="post">
+            <label><b>Nom de l'entreprise</b></label>
+            <input name="companyName" placeholder="Entrez le nom de l'entreprise" required
+                   th:value="${user.companyName}" type="text">
+            <label><b>Siret de l'entreprise</b></label>
+            <input name="siret" placeholder="Entrez le siret" required th:value="${user.siret}" type="number">
+            <label><b>Téléphone</b></label>
+            <input name="companyPhone" placeholder="Entrez le numéro de téléphone" required
+                   th:value="${user.companyPhone}" type="number">
+            <label><b>Adresse e-mail</b></label>
+            <input name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Entrez votre email"
+                   required th:value="${user.email}" type="text">
+            <label><b>Mot de passe</b></label>
+            <input name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Entrez le mot de passe"
+                   title="Votre mot de passe doit contenir au minimum 8 caractères dont une majuscule et un chiffre"
+                   type="password">
+            <button id="button_submit_edit" type="submit">Editer</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

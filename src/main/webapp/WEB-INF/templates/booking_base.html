@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Choisir une date et une agence</title>
+    <link href="css/formstyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('booking_base')}"></nav>
+</header>
+<main>
+    <section>
+        <form method="post">
+            <h1>Commencez votre voyage ici!</h1>
+            <label><b>Date de départ</b></label>
+            <input name="reservationBeg" placeholder="Date de début de réservation" required type="date">
+            <label><b>Date d'arrivée</b></label>
+            <input name="reservationEnd" placeholder="Date de fin de réservation" required type="date">
+            <label><b>Agence</b></label>
+            <select name="parkingSelect" size="1">
+                <option value="1">Renter</option>
+                <option value="2">Chicouking</option>
+                <option value="3">Lillking</option>
+            </select>
+            <button id="button_submit_placeanddate" type="submit">Trouvez votre réservation!</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout d'un véhicule</title>
+    <link href="../../../css/formstyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('users_info')}"></nav>
+</header>
+<main id="meca">
+    <section>
+        <h1>Ajouter un véhicule</h1>
+        <form method="post" th:action="@{../cars_info.html}">
+            <label><b>Marque</b></label>
+            <input name="brand" placeholder="Entrez la marque de la voiture" required type="text">
+            <label><b>Modèle</b></label>
+            <input name="model" placeholder="Entrez le modèle de la voiture" required type="text">
+            <label><b>Année</b></label>
+            <input class="hoverInput" name="year" placeholder="Entrez l'année du véhicule" required type="number">
+            <label><b>Kilomètrage</b></label>
+            <input class="hoverInput" name="mileage" placeholder="Entrez le kilomètrage du véhicule" required
+                   type="number">
+            <label><b>Prix</b></label>
+            <input class="hoverInput" name="price" placeholder="Entrez le prix du véhicule" required type="number">
+            <label><b>Photo</b></label>
+            <input accept=".png, .jpg, .jpeg" name="carPicture"
+                   placeholder="Ajoutez une photo de la voiture en format jpg, jpeg ou png" type="file">
+            <label><b>Parking</b></label>
+            <select name="parking" required size="3">
+                <option value="1">Renter</option>
+                <option value="2">Chicouking</option>
+                <option value="3">Lillking</option>
+            </select>
+            <button id="button_submit_add" type="submit">Ajouter</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

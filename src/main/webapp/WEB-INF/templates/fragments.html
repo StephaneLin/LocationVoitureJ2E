@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+</head>
+<body>
+<nav th:fragment="menu(currentPage)">
+    <ul class="regular" th:if="${#bools.isFalse(userRole)}">
+        <li>RENTACHAR</li>
+        <li><a th:href="@{/booking_base}">Réserver en ligne</a></li>
+    </ul>
+    <ul class="regular" th:if="${!#bools.isFalse(userRole)}">
+        <li><b>RENTACHAR</b></li>
+        <li><a th:href="@{/index}" th:if="${userRole} >= 3">Accueil</a></li>
+        <li><a th:href="@{/booking_base}">Reserver en ligne</a></li>
+        <li><a th:href="@{/connected/staff/manager/users_info}" th:if="${userRole} == 4">Nos usagers</a></li>
+        <li><a th:href="@{/connected/staff/cars_info}" th:if="${userRole} >= 3">Nos vehicules</a></li>
+        <li><a th:href="@{/connected/staff/manager/crud_tool}" th:if="${userRole} == 4">Recherche globale</a></li>
+    </ul>
+    <ul class="regular" th:if="${#bools.isFalse(userRole)}">
+        <li><a th:href="@{/sign_up}">S'inscrire</a></li>
+        <li><a th:href="@{/connexion}">Se connecter</a></li>
+    </ul>
+    <ul class="regular" th:if="${!#bools.isFalse(userRole)}">
+        <!--        <li th:if="${user.entitee} == 0" th:text="${user.userLastName}"></li>-->
+        <!--        <li th:if="${user.entitee} == 1" th:text="${user.companyName}"></li>-->
+        <li><a th:href="@{/connected/user/booked}">Mes reservations</a></li>
+        <li><a th:href="@{/sign_out}">Se deconnecter</a></li>
+    </ul>
+</nav>
+
+<footer th:fragment="footer(currentPage)">
+    <p>
+        N'hesitez pas à nous contacter pour plus d'infos !
+    </p>
+</footer>
+</body>
+</html>

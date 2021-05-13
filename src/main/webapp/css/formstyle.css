@@ -1,0 +1,103 @@
+/** HEADER **/
+nav {
+    font-family: "Helvetica", sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    background-color: white;
+}
+
+header a {
+    color: #47ba01;
+    margin: 1em;
+    padding: 1em;
+    text-decoration: none;
+    transition: background-color 1s, color 1s;
+}
+
+header a:hover {
+    color: #47ba01;
+    background-color: #eeeeee;
+    transition: background-color 1s, color 1s;
+}
+
+header div {
+    display: none;
+}
+
+/** FOOTER **/
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    padding: 0.4rem;
+}
+
+@media (max-width: 420px) {
+    footer {
+        font-size: 10%;
+    }
+
+}
+
+/** BODY **/
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+main {
+    background-image: url(../images/form.jpg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+
+main#meca {
+    background-image: url(../images/form2.jpg);
+}
+
+section {
+    font-family: "Helvetica", sans-serif;
+    display: block;
+    margin: 0 35%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+input, select {
+    margin-top: 1%;
+    margin-bottom: 4%;
+    font-size: 1em;
+    padding: 2%;
+}
+
+.hoverInput {
+    border: 1px solid black;
+}
+
+
+#button_signup, #button_submit_meet_standards, #button_submit_refected, #button_submit_signup, #button_submit_placeanddate, #button_submit_add, #button_submit_edit, #login {
+    width: 50%;
+    padding: 2%;
+    align-self: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1em;
+}
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche globale</title>
+    <link href="../../../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('crud_tool')}"></nav>
+</header>
+<main id="crud">
+    <form id="search-form" method="post">
+        <input id="search_input" name="search_input" placeholder="Votre recherche" type="text">
+        <button type="submit">Rechercher</button>
+    </form>
+    <table id="table_available_cars">
+        <thead>
+        <tr>
+            <th>VOITURES</th>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Année</th>
+            <th>Kilomètrage</th>
+            <th>Révision</th>
+            <th>Edition</th>
+            <th>Suppression</th>
+        </tr>
+        </thead>
+        <tbody id="carList">
+        <tr th:each="car : ${CarList}" th:if="${not #lists.isEmpty(CarList)}">
+            <td th:text="${car.id}">Reference</td>
+            <td th:text="${car.brand}">Marque</td>
+            <td th:text="${car.modele}">Modele</td>
+            <td th:text="${car.carYear}">Annee</td>
+            <td th:text="${car.mileage}">Kilometrage</td>
+            <td>
+                <form method="post">
+                    <input name="carIdRev" th:value="${car.id}" type="hidden">
+                    <button type="submit">Modifier</button>
+                </form>
+            </td>
+            <td>
+                <form method="post">
+                    <input name="carIdMod" th:value="${car.id}" type="hidden">
+                    <button type="submit">Modifier</button>
+                </form>
+            </td>
+            <td>
+                <form method="post">
+                    <input name="carIdSupp" th:value="${car.id}" type="hidden">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <article>
+        <a class="link" href="car_addition.html">
+            <button>AJOUTER UNE NOUVELLE VOITURE</button>
+        </a>
+    </article>
+    <table id="table_available_users">
+        <thead>
+        <tr>
+            <th>UTILISATEURS</th>
+            <th>Nom</th>
+            <th>Prénom/Siret</th>
+            <th>Téléphone</th>
+            <th>E-mail</th>
+            <th>Edition</th>
+            <th>Suppression</th>
+        </tr>
+        </thead>
+        <tbody id="userList">
+        <tr th:each="user : ${UsersList}" th:if="${not #lists.isEmpty(UsersList)}">
+            <td th:text="${user.userId}">Id</td>
+            <td th:if="${user.companyName} != null" th:text="${user.companyName}">Nom</td>
+            <td th:if="${user.userLastName} != null" th:text="${user.userLastName}">Nom</td>
+            <td th:if="${user.userFirstName} != null" th:text="${user.userFirstName}">Prénom</td>
+            <td th:if="${user.siret} != 0" th:text="${user.siret}">Siret</td>
+            <td th:if="${user.companyPhone} != 0" th:text="${user.companyPhone}">Téléphone</td>
+            <td th:if="${user.userPhone} != 0" th:text="${user.userPhone}">Téléphone</td>
+            <td th:text="${user.email}">E-mail</td>
+            <td>
+                <form method="post">
+                    <input name="userIdMod" th:value="${user.userId}" type="hidden">
+                    <input name="userTypeMod" th:value="${user.entitee}" type="hidden">
+                    <button type="submit">Modifier</button>
+                </form>
+            </td>
+            <td>
+                <form method="post">
+                    <input name="userIdSupp" th:value="${user.userId}" type="hidden">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <article>
+        <a class="link" href="user_addition">
+            <button>AJOUTER UN NOUVEAU CLIENT</button>
+        </a>
+        <a class="link" href="company_addition">
+            <button>AJOUTER UNE NOUVELLE ENTREPRISE</button>
+        </a>
+    </article>
+
+    <table id="table_parkings">
+        <thead>
+        <tr>
+            <th>Parkings</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Nombre de chars</th>
+            <th>Téléphone</th>
+            <th>Suppression</th>
+        </tr>
+        </thead>
+        <tbody id="parkingList">
+        <tr th:each="parking : ${ParkingList}" th:if="${not #lists.isEmpty(ParkingList)}">
+            <td th:text="${parking.parkingId}">Id</td>
+            <td th:text="${parking.name}">Nom</td>
+            <td th:text="${parking.location}">Adresse</td>
+            <td th:text="${parking.numOfCar}">0215424</td>
+            <td th:text="${parking.telNumber}">0215452</td>
+            <td>
+                <form method="post">
+                    <input name="parkingIdSupp" th:value="${parking.parkingId}" type="hidden">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+<footer th:replace="~{fragments::footer('crud_tool')}"></footer>
+</body>
+</html>
+

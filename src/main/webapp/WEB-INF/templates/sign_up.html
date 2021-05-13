@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/formstyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('sign_up')}"></nav>
+</header>
+<main>
+    <section>
+        <form enctype="multipart/form-data" method="post">
+            <h1>S'inscrire</h1>
+            <label><b>Nom</b></label>
+            <input name="name" placeholder="Entrez votre nom" required type="text">
+            <label><b>Prénom</b></label>
+            <input name="firstName" placeholder="Entrez votre prénom" required type="text">
+            <label><b>Email</b></label>
+            <input name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Entrez votre email"
+                   required type="text">
+            <label><b>Mot de passe</b></label>
+            <input name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Entrez votre mot de passe"
+                   required
+                   title="Votre mot de passe doit contenir au minimum 8 caractères dont une majuscule et un chiffre"
+                   type="password">
+            <label><b>Permis de conduire</b></label>
+            <input accept=".png, .pdf" name="license" placeholder="Ajoutez votre permis de conduire en format pdf ou png"
+                   required type="file">
+            <h2 class="UserIsNotSignedUpError" th:if="${errorEmail}">Email déjà utilisé</h2>
+            <button id="button_submit_signup" type="submit">S'inscrire</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

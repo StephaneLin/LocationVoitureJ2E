@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mode entretien</title>
+    <link href="../../css/formstyle.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+    <nav th:replace="~{fragments::menu('car_review')}"></nav>
+</header>
+<main id="meca">
+    <section>
+        <b th:text="${car.brand}"></b> - <b th:text="${car.modele}"></b> - <b th:text="${car.carYear}"></b>
+        - <b>Référence:</b><b th:text="${car.id}"></b>
+
+        <div>
+            <form method="post">
+                <h2>Maintenance</h2>
+                <label><b>Conformité des pneus</b></label>
+                <input name="tire" placeholder="Cochez si les pneus sont conformes" type="checkbox">
+                <label><b>Conformité de la carosserie</b></label>
+                <input name="bodywork" placeholder="Cochez si la carosserie est conforme" type="checkbox">
+                <label><b>Conformité de l'électronique</b></label>
+                <input name="electronics" placeholder="Cochez si l'électronique est conforme'" type="checkbox">
+                <label><b>Conformité du moteur</b></label>
+                <input name="motor" placeholder="Cochez si le moteur est conforme" type="checkbox">
+                <input name="notConform" th:value="true" type="hidden">
+                <button id="button_submit_refected" type="submit">Véhicule non conforme</button>
+            </form>
+            <form>
+                <input name="conform" th:value="true" type="hidden">
+                <button id="button_submit_meet_standards" type="submit">Véhicule conforme</button>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>
